@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="flow-card">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <p class="eyebrow mb-0">Step {{ step_number }} of {{ total_steps }}</p>
+    <span class="badge text-bg-light">Route: /learn/{{ lesson_number }}</span>
+  </div>
+
+  <div class="progress mb-4" role="progressbar" aria-label="Learning progress" aria-valuenow="{{ learning_progress_percent }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" style="width: {{ learning_progress_percent }}%">{{ learning_progress_percent }}%</div>
+  </div>
+
+  <h1 class="h3 mb-3">{{ lesson.title }}</h1>
+
+  {% for paragraph in lesson.paragraphs %}
+    <p>{{ paragraph }}</p>
+  {% endfor %}
+
+  {% if lesson.images %}
+    <div class="slide-media-grid mb-3">
+      {% for image in lesson.images %}
+        <img
+          class="slide-media"
+          src="{{ url_for('static', filename=image) }}"
+          alt="Prototype reference image {{ loop.index }} for {{ lesson.title }}"
+        >
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if lesson.bullet_sections %}
+    {% for section in lesson.bullet_sections %}
+      <div class="mb-3">
+        {% if section.heading %}
+          <p class="fw-semibold mb-1">{{ section.heading }}</p>
+        {% endif %}
+        <ul class="instruction-list mb-0">
+          {% for bullet in section.bullets %}
+            <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  {% if lesson.callout %}
+    <div class="tip-box mb-4">
+      <strong>Key Point:</strong> {{ lesson.callout }}
+    </div>
+  {% endif %}
+
+  <div class="d-flex flex-wrap gap-2">
+    {% if has_previous %}
+      <a class="btn btn-outline-secondary" href="{{ url_for('learn', lesson_number=lesson_number - 1) }}">Back</a>
+    {% else %}
+      <a class="btn btn-outline-secondary" href="{{ url_for('home') }}">Back</a>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('learn', lesson_number=lesson_number) }}" class="m-0">
+      <button type="submit" class="btn btn-primary">{{ lesson.next_label or 'Next' }}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

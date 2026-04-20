@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="flow-card mb-4">
+  <p class="eyebrow mb-2">Wrap-up</p>
+  <h1 class="h3 mb-2">Score: {{ score }} / {{ total }} ({{ percent }}%)</h1>
+  <p class="mb-2">{{ wrap_up.takeaway }}</p>
+
+  {% if wrap_up.summary_points %}
+    <ul class="instruction-list mb-3">
+      {% for point in wrap_up.summary_points %}
+        <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if wrap_up.images %}
+    <div class="slide-media-grid mt-3">
+      {% for image in wrap_up.images %}
+        <img
+          class="slide-media"
+          src="{{ url_for('static', filename=image) }}"
+          alt="Prototype wrap-up image {{ loop.index }}"
+        >
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+<section class="flow-card mb-4">
+  <h2 class="h5 mb-3">Answer Review</h2>
+  <div class="vstack gap-3">
+    {% for item in reviewed_questions %}
+      <article class="review-card {% if item.is_correct %}review-correct{% else %}review-incorrect{% endif %}">
+        <p class="mb-1"><strong>Question {{ item.question_number }}:</strong> {{ item.question.question }}</p>
+        <p class="mb-1"><strong>Your answer:</strong>
+          {% if item.submitted %}
+            {{ item.submitted.choice_label }}
+          {% else %}
+            No answer submitted.
+          {% endif %}
+        </p>
+        <p class="mb-1"><strong>Correct answer:</strong> {{ item.correct_choice.label }}</p>
+        <p class="mb-0"><strong>Reason:</strong> {{ item.question.reason }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="flow-card">
+  <h2 class="h5 mb-3">Session Data Summary</h2>
+  <p class="mb-3"><strong>Page entries recorded:</strong> {{ page_entry_count }}</p>
+
+  <div class="d-flex flex-wrap gap-2">
+    <form action="{{ url_for('start') }}" method="post">
+      <button type="submit" class="btn btn-primary">Restart Prototype</button>
+    </form>
+    <a class="btn btn-outline-secondary" href="{{ url_for('home') }}">Back to Home</a>
+  </div>
+</section>
+{% endblock %}

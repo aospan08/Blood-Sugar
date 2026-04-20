@@ -1,0 +1,354 @@
+{
+  "site_title": "Meal Order Glucose Coach",
+  "total_steps": 14,
+  "home": {
+    "step_number": 1,
+    "headline": "How to Use Meal Order to Reduce Blood Sugar Spikes",
+    "subtitle": "Same food, healthier life.",
+    "paragraphs": [
+      "This lesson explains how food order affects glucose levels, why that matters, and one practical habit:",
+      "Start with vegetables/fiber, then protein, and save starchier carbs for last."
+    ],
+    "start_button_label": "Start Lesson",
+    "images": [
+      "pptx_images/image8.png"
+    ]
+  },
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "step_number": 2,
+      "title": "Why Care About This Topic?",
+      "paragraphs": [
+        "Why care about blood sugar spikes?"
+      ],
+      "bullet_sections": [
+        {
+          "heading": "Short-term impact",
+          "bullets": [
+            "Hunger soon after eating",
+            "Energy crashes"
+          ]
+        },
+        {
+          "heading": "Long-term impact",
+          "bullets": [
+            "Increased risk of Type 2 diabetes",
+            "Fat storage and weight gain"
+          ]
+        }
+      ],
+      "callout": "Goal: keep glucose stable, not spiking.",
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image20.png"
+      ]
+    },
+    {
+      "id": "lesson-2",
+      "step_number": 3,
+      "title": "How to Track Blood Sugar",
+      "paragraphs": [
+        "Track blood glucose over time to understand what affects it.",
+        "Two common methods are BGM and CGM."
+      ],
+      "bullet_sections": [
+        {
+          "heading": "BGM (blood glucose monitor)",
+          "bullets": [
+            "Finger-prick",
+            "Single reading at one moment"
+          ]
+        },
+        {
+          "heading": "CGM (continuous glucose monitor)",
+          "bullets": [
+            "Wearable sensor",
+            "Tracks glucose continuously (24/7)"
+          ]
+        }
+      ],
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image18.png",
+        "pptx_images/image17.png"
+      ]
+    },
+    {
+      "id": "lesson-3",
+      "step_number": 4,
+      "title": "How to Interpret Your Readings",
+      "paragraphs": [
+        "Typical target range: 70-180 mg/dL (milligrams per deciliter)."
+      ],
+      "bullet_sections": [
+        {
+          "heading": "Watch for",
+          "bullets": [
+            "Spikes (going up)",
+            "Drops (going down)"
+          ]
+        },
+        {
+          "heading": "If levels go outside range",
+          "bullets": [
+            "Think about likely causes (food, timing, meal order)",
+            "Use patterns to make better decisions next time"
+          ]
+        }
+      ],
+      "callout": "Key idea: focus on patterns, not one isolated number.",
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image1.png",
+        "pptx_images/image3.png"
+      ]
+    },
+    {
+      "id": "lesson-4",
+      "step_number": 5,
+      "title": "What Can Make Blood Glucose Go Up?",
+      "paragraphs": [
+        "Many factors can raise blood sugar."
+      ],
+      "bullet_sections": [
+        {
+          "heading": "Common causes",
+          "bullets": [
+            "Too much food",
+            "Not enough physical activity",
+            "Not taking enough insulin or diabetes medications",
+            "Side effects from other medications (for example, steroids)",
+            "Not staying hydrated"
+          ]
+        },
+        {
+          "heading": "Other factors",
+          "bullets": [
+            "Getting sick",
+            "Stress",
+            "Pain",
+            "Menstrual cycle (can also lead to lows)"
+          ]
+        }
+      ],
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image4.png"
+      ]
+    },
+    {
+      "id": "lesson-5",
+      "step_number": 6,
+      "title": "What Can Make Blood Glucose Go Down?",
+      "paragraphs": [
+        "Some causes are the opposite pattern."
+      ],
+      "bullet_sections": [
+        {
+          "heading": "Common causes",
+          "bullets": [
+            "Too little food or missing meals/snacks",
+            "Side effects from some medications",
+            "Alcohol, especially on an empty stomach",
+            "Menstrual cycle (can also lead to highs)",
+            "More physical activity than usual"
+          ]
+        }
+      ],
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image4.png"
+      ]
+    },
+    {
+      "id": "lesson-6",
+      "step_number": 7,
+      "title": "Why Meal Order Matters",
+      "paragraphs": [
+        "Some studies suggest that the order you eat foods can significantly affect blood sugar spikes, even if the total meal stays the same.",
+        "In one small study of people with type 2 diabetes, participants ate the same meal in different orders (carbs first vs carbs last).",
+        "Eating protein and vegetables before carbohydrates led to lower post-meal glucose levels."
+      ],
+      "callout": "The food stayed the same. The order changed.",
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image7.png"
+      ]
+    },
+    {
+      "id": "lesson-7",
+      "step_number": 8,
+      "title": "Use the Diabetes Plate as the Meal Template",
+      "paragraphs": [
+        "The Diabetes Plate is a practical way to build meals that support glucose management."
+      ],
+      "bullet_sections": [
+        {
+          "heading": "Plate method",
+          "bullets": [
+            "1/2 plate non-starchy vegetables",
+            "1/4 plate lean protein",
+            "1/4 plate carbohydrate foods"
+          ]
+        }
+      ],
+      "callout": "Half veggies, quarter protein, quarter carbs.",
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image9.png"
+      ]
+    },
+    {
+      "id": "lesson-8",
+      "step_number": 9,
+      "title": "Teach the Core Lesson",
+      "paragraphs": [
+        "One simple way to reduce blood sugar spikes is by changing the order you eat your food.",
+        "3-step eating order: vegetables/fiber first, protein second, starchier carbs last."
+      ],
+      "next_label": "Next",
+      "images": [],
+      "bullet_sections": [
+        {
+          "heading": "3-step eating order",
+          "bullets": [
+            "Step 1: Start with non-starchy vegetables or fiber-rich foods.",
+            "Step 2: Eat protein next.",
+            "Step 3: Save starchier carbohydrates for last."
+          ]
+        }
+      ],
+      "callout": "Default habit: veggies/fiber first, protein second, starch last."
+    },
+    {
+      "id": "lesson-9",
+      "step_number": 10,
+      "title": "Edge Cases: What If the Meal Is Mixed Together?",
+      "paragraphs": [
+        "Mixed meals happen in real life.",
+        "You can still apply the idea by starting with bites that are heavier on vegetables/protein before the starch-heavy parts."
+      ],
+      "callout": "Default fallback: avoid carb-first eating when possible.",
+      "next_label": "Next",
+      "images": [
+        "pptx_images/image21.png"
+      ],
+      "bullet_sections": [
+        {
+          "heading": "If the meal is mixed together",
+          "bullets": [
+            "Start with bites that have more vegetables and protein first.",
+            "Delay starch-heavier bites until later in the meal when possible.",
+            "Eat more slowly to reduce rapid carb load early in the meal."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "step_number": 11,
+      "title": "Quiz Intro",
+      "paragraphs": [
+        "Now let's test your knowledge.",
+        "Answer a short series of questions to check your understanding of the material."
+      ],
+      "next_label": "Start Quiz",
+      "images": [
+        "pptx_images/image2.png"
+      ]
+    }
+  ],
+  "quiz_questions": [
+    {
+      "id": "quiz-1",
+      "step_number": 12,
+      "question": "Practice on one meal: which order should be eaten?",
+      "hint": "Meal items: salad, chicken, rice.",
+      "choices": [
+        {
+          "id": "q1-a",
+          "label": "Rice -> salad -> chicken"
+        },
+        {
+          "id": "q1-b",
+          "label": "Salad -> chicken -> rice"
+        },
+        {
+          "id": "q1-c",
+          "label": "Chicken -> rice -> salad"
+        }
+      ],
+      "correct_choice_id": "q1-b",
+      "feedback_title": "Practice Feedback",
+      "reason": "Best answer: salad -> chicken -> rice. This order is linked to the lower spike pattern in the prototype chart.",
+      "next_label": "Next",
+      "question_images": [
+        "pptx_images/image19.png",
+        "pptx_images/image16.png",
+        "pptx_images/image15.png"
+      ],
+      "feedback_images": [
+        "pptx_images/image5.png"
+      ]
+    },
+    {
+      "id": "quiz-2",
+      "step_number": 13,
+      "question": "Which meal order is more likely to reduce the blood sugar spike?",
+      "hint": "Option A: Bread first, turkey second, side salad last. Option B: Side salad first, turkey second, bread last.",
+      "choices": [
+        {
+          "id": "q2-a",
+          "label": "A: Bread first -> turkey -> side salad"
+        },
+        {
+          "id": "q2-b",
+          "label": "B: Side salad first -> turkey -> bread last"
+        }
+      ],
+      "correct_choice_id": "q2-b",
+      "feedback_title": "Quiz Feedback",
+      "reason": "Correct answer: B. Bread still belongs in the meal, but delaying it until after fiber and protein usually creates a gentler spike.",
+      "next_label": "Next",
+      "question_images": [],
+      "feedback_images": [],
+      "feedback_extra": "Carbohydrates are still part of the meal. The lower-spike strategy is about sequence: fiber/vegetables first, protein next, and bread/starch later."
+    },
+    {
+      "id": "quiz-3",
+      "step_number": 14,
+      "question": "Breakfast version: which order is more likely to reduce the spike?",
+      "hint": "Option A: Toast first, eggs second, berries last. Option B: Berries first, eggs second, toast last.",
+      "choices": [
+        {
+          "id": "q3-a",
+          "label": "A: Toast first -> eggs -> berries"
+        },
+        {
+          "id": "q3-b",
+          "label": "B: Berries first -> eggs -> toast last"
+        }
+      ],
+      "correct_choice_id": "q3-b",
+      "feedback_title": "Quiz Feedback",
+      "reason": "Correct answer: B. It follows the same logic: fiber/produce first, protein next, starch last.",
+      "next_label": "See Wrap-up",
+      "question_images": [],
+      "feedback_images": [],
+      "feedback_extra": "This does not make a sweet breakfast \"free.\" It points to a gentler order for the same foods."
+    }
+  ],
+  "wrap_up": {
+    "title": "Wrap-up",
+    "takeaway": "If the goal is to reduce the size of a post-meal glucose spike, the safer default is usually: vegetables/fiber first, protein second, starchier carbs last.",
+    "images": [
+      "pptx_images/image14.png"
+    ],
+    "summary_points": [
+      "You do not need perfect meals to make progress.",
+      "On busy days, avoid starting with starch if possible.",
+      "Repeat this order consistently to reduce average spike size over time."
+    ]
+  }
+}

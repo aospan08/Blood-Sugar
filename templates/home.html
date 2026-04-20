@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-panel mb-4">
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-8">
+      <p class="eyebrow mb-2">Step {{ home.step_number }} of {{ total_steps }}</p>
+      <h1 class="display-6 mb-2">{{ home.headline }}</h1>
+      <p class="lead mb-3">{{ home.subtitle }}</p>
+
+      {% for paragraph in home.paragraphs %}
+        <p class="mb-2">{{ paragraph }}</p>
+      {% endfor %}
+
+      {% if home.images %}
+        <div class="slide-media-grid mt-3 mb-3">
+          {% for image in home.images %}
+            <img
+              class="slide-media"
+              src="{{ url_for('static', filename=image) }}"
+              alt="Prototype reference image {{ loop.index }} for home screen"
+            >
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <form id="start-form" action="{{ url_for('start') }}" method="post" class="mt-3">
+        <button id="start-button" type="submit" class="btn btn-primary btn-lg">{{ home.start_button_label }}</button>
+      </form>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="summary-card">
+        <h2 class="h5">Session Snapshot</h2>
+        {% if has_started %}
+          <p class="mb-1"><strong>Learning pages continued:</strong> {{ lesson_continue_count }} / {{ lesson_count }}</p>
+          <p class="mb-1"><strong>Quiz answers:</strong> {{ quiz_count_answered }} / {{ quiz_count }}</p>
+          <p class="mb-3 text-muted">Start resets this single-user run.</p>
+          <a class="btn btn-outline-primary btn-sm" href="{{ url_for('learn', lesson_number=1) }}">Resume Lesson Flow</a>
+        {% else %}
+          <p class="mb-0 text-muted">No active run yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

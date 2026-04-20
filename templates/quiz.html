@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="flow-card">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <p class="eyebrow mb-0">Step {{ step_number }} of {{ total_steps }}</p>
+    <span class="badge text-bg-light">Quiz {{ question_number }} of {{ quiz_count }}</span>
+  </div>
+
+  <div class="progress mb-4" role="progressbar" aria-label="Quiz progress" aria-valuenow="{{ quiz_progress_percent }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar bg-success" style="width: {{ quiz_progress_percent }}%">{{ quiz_progress_percent }}%</div>
+  </div>
+
+  {% if show_feedback %}
+    <h1 class="h4 mb-2">{{ question.feedback_title }}</h1>
+
+    {% if is_correct %}
+      <div class="alert alert-success">Correct.</div>
+    {% else %}
+      <div class="alert alert-warning">Not quite.</div>
+    {% endif %}
+
+    <p class="mb-1"><strong>Your answer:</strong> {{ saved_answer.choice_label }}</p>
+    <p class="mb-1"><strong>Correct answer:</strong> {{ correct_choice.label }}</p>
+    <p class="mb-4"><strong>Reason:</strong> {{ question.reason }}</p>
+
+    {% if question.feedback_extra %}
+      <div class="tip-box mb-4">
+        {{ question.feedback_extra }}
+      </div>
+    {% endif %}
+
+    {% if question.feedback_images %}
+      <div class="slide-media-grid mb-4">
+        {% for image in question.feedback_images %}
+          <img
+            class="slide-media"
+            src="{{ url_for('static', filename=image) }}"
+            alt="Prototype feedback image {{ loop.index }} for quiz question {{ question_number }}"
+          >
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="d-flex flex-wrap gap-2">
+      <a class="btn btn-outline-secondary" href="{{ url_for('quiz', question_number=question_number) }}">Back</a>
+      <a class="btn btn-primary" href="{{ next_url }}">{{ question.next_label or 'Next' }}</a>
+    </div>
+  {% else %}
+    <h1 class="h4 mb-2">{{ question.question }}</h1>
+    <p class="text-muted mb-3">{{ question.hint }}</p>
+
+    {% if question.question_images %}
+      <div class="slide-media-grid mb-3">
+        {% for image in question.question_images %}
+          <img
+            class="slide-media"
+            src="{{ url_for('static', filename=image) }}"
+            alt="Prototype question image {{ loop.index }} for quiz question {{ question_number }}"
+          >
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form class="quiz-option-form" method="post" action="{{ url_for('quiz', question_number=question_number) }}">
+      {% if error %}
+        <div class="alert alert-danger py-2" role="alert">{{ error }}</div>
+      {% endif %}
+
+      <div class="vstack gap-2 mb-4">
+        {% for choice in question.choices %}
+          <label class="option-card" for="{{ choice.id }}">
+            <input
+              class="form-check-input me-2"
+              type="radio"
+              id="{{ choice.id }}"
+              name="choice_id"
+              value="{{ choice.id }}"
+            >
+            <span>{{ choice.label }}</span>
+          </label>
+        {% endfor %}
+      </div>
+
+      <div class="d-flex flex-wrap gap-2">
+        {% if question_number > 1 %}
+          <a class="btn btn-outline-secondary" href="{{ url_for('quiz', question_number=question_number - 1) }}?phase=feedback">Back</a>
+        {% else %}
+          <a class="btn btn-outline-secondary" href="{{ url_for('learn', lesson_number=lesson_count) }}">Back</a>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary proceed-button">Check Answer</button>
+      </div>
+    </form>
+  {% endif %}
+</section>
+{% endblock %}
