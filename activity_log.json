@@ -1,32 +1,201 @@
 {
-  "saved_at": "2026-04-20T21:56:07.523798+00:00",
-  "started_at": "2026-04-20T21:56:07.519149+00:00",
+  "saved_at": "2026-04-28T02:40:40.322690+00:00",
+  "started_at": "2026-04-28T02:40:32.714491+00:00",
   "page_entries": [
     {
-      "timestamp": "2026-04-20T21:56:07.523774+00:00",
+      "timestamp": "2026-04-28T02:40:32.719091+00:00",
       "page_type": "learn",
       "page_number": 1,
       "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:33.909032+00:00",
+      "page_type": "learn",
+      "page_number": 2,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:35.653990+00:00",
+      "page_type": "learn",
+      "page_number": 3,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:36.571508+00:00",
+      "page_type": "learn",
+      "page_number": 4,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:37.610711+00:00",
+      "page_type": "learn",
+      "page_number": 5,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:38.325042+00:00",
+      "page_type": "learn",
+      "page_number": 6,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:39.094097+00:00",
+      "page_type": "learn",
+      "page_number": 7,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-04-28T02:40:40.322668+00:00",
+      "page_type": "quiz",
+      "page_number": 1,
+      "phase": "question"
     }
   ],
-  "lesson_continues": {},
+  "lesson_continues": {
+    "1": "2026-04-28T02:40:33.904417+00:00",
+    "2": "2026-04-28T02:40:35.649802+00:00",
+    "3": "2026-04-28T02:40:36.567571+00:00",
+    "4": "2026-04-28T02:40:37.606997+00:00",
+    "5": "2026-04-28T02:40:38.320407+00:00",
+    "6": "2026-04-28T02:40:39.090356+00:00",
+    "7": "2026-04-28T02:40:40.318272+00:00"
+  },
   "quiz_answers": {},
   "events": [
     {
-      "timestamp": "2026-04-20T21:56:07.519166+00:00",
+      "timestamp": "2026-04-28T02:40:32.714513+00:00",
       "event_type": "learning_started",
       "details": {
         "next_route": "/learn/1"
       }
     },
     {
-      "timestamp": "2026-04-20T21:56:07.523793+00:00",
+      "timestamp": "2026-04-28T02:40:32.719108+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-20T21:56:07.523774+00:00",
+        "timestamp": "2026-04-28T02:40:32.719091+00:00",
         "page_type": "learn",
         "page_number": 1,
         "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:33.904438+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 1
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:33.909045+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:33.909032+00:00",
+        "page_type": "learn",
+        "page_number": 2,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:35.649824+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 2
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:35.654001+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:35.653990+00:00",
+        "page_type": "learn",
+        "page_number": 3,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:36.567595+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 3
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:36.571520+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:36.571508+00:00",
+        "page_type": "learn",
+        "page_number": 4,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:37.607045+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 4
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:37.610741+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:37.610711+00:00",
+        "page_type": "learn",
+        "page_number": 5,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:38.320435+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 5
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:38.325055+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:38.325042+00:00",
+        "page_type": "learn",
+        "page_number": 6,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:39.090383+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 6
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:39.094115+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:39.094097+00:00",
+        "page_type": "learn",
+        "page_number": 7,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:40.318294+00:00",
+      "event_type": "lesson_continue_clicked",
+      "details": {
+        "lesson_number": 7
+      }
+    },
+    {
+      "timestamp": "2026-04-28T02:40:40.322685+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-04-28T02:40:40.322668+00:00",
+        "page_type": "quiz",
+        "page_number": 1,
+        "phase": "question"
       }
     }
   ]
