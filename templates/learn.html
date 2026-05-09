@@ -4,7 +4,7 @@
 <section class="flow-card">
   <div class="d-flex justify-content-between align-items-center mb-2">
     <p class="eyebrow mb-0">Step {{ step_number }} of {{ total_steps }}</p>
-    <span class="badge text-bg-light">Route: /learn/{{ lesson_number }}</span>
+    <span class="badge text-bg-light">Lesson {{ lesson_number }} of {{ lesson_count }}</span>
   </div>
 
   <div class="progress mb-4" role="progressbar" aria-label="Learning progress" aria-valuenow="{{ learning_progress_percent }}" aria-valuemin="0" aria-valuemax="100">
@@ -29,6 +29,78 @@
     </div>
   {% endif %}
 
+  {% if lesson.prediction %}
+    <section class="interaction-panel mb-4" data-interaction-name="glucose-prediction">
+      <p class="fw-semibold mb-2">{{ lesson.prediction.prompt }}</p>
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        {% for option in lesson.prediction.options %}
+          <button class="btn btn-outline-primary prediction-button" type="button" data-prediction="{{ option.id }}">
+            {{ option.label }}
+          </button>
+        {% endfor %}
+      </div>
+      <p class="prediction-response mb-0" aria-live="polite">{{ lesson.prediction.default_response }}</p>
+    </section>
+  {% endif %}
+
+  {% if lesson.interactive_chart %}
+    <section class="interactive-chart-panel mb-4" data-chart-panel>
+      <div class="d-flex flex-wrap justify-content-between gap-2 mb-2">
+        <div>
+          <p class="fw-semibold mb-1">{{ lesson.interactive_chart.title }}</p>
+          <p class="small text-muted mb-0">{{ lesson.interactive_chart.subtitle }}</p>
+        </div>
+        <div class="btn-group chart-toggle-group" role="group" aria-label="Choose meal order chart">
+          {% for curve in lesson.interactive_chart.curves %}
+            <button
+              class="btn btn-outline-primary chart-toggle {% if loop.first %}active{% endif %}"
+              type="button"
+              data-curve="{{ curve.id }}"
+              data-label="{{ curve.label }}"
+              data-peak="{{ curve.peak }}"
+              data-summary="{{ curve.summary }}"
+            >
+              {{ curve.short_label }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="chart-frame" role="img" aria-label="Interactive glucose response chart with reference range from 70 to 180 milligrams per deciliter">
+        <svg viewBox="0 0 640 330" class="glucose-chart" focusable="false" aria-hidden="true">
+          <rect x="70" y="126" width="500" height="106" class="target-range-band"></rect>
+          <text x="78" y="146" class="chart-band-label">Reference zone: 70-180 mg/dL</text>
+
+          <line x1="70" y1="292" x2="570" y2="292" class="chart-axis"></line>
+          <line x1="70" y1="24" x2="70" y2="292" class="chart-axis"></line>
+          <text x="280" y="322" class="chart-label">Minutes after meal</text>
+          <text x="22" y="170" class="chart-label chart-y-label">mg/dL</text>
+
+          <text x="58" y="296" class="chart-tick">0</text>
+          <text x="55" y="238" class="chart-tick">70</text>
+          <text x="48" y="126" class="chart-tick">180</text>
+          <text x="48" y="38" class="chart-tick">220</text>
+
+          <line x1="70" y1="232" x2="570" y2="232" class="chart-grid"></line>
+          <line x1="70" y1="126" x2="570" y2="126" class="chart-grid"></line>
+
+          {% for curve in lesson.interactive_chart.curves %}
+            <polyline
+              class="chart-curve chart-curve-{{ curve.id }} {% if loop.first %}active{% endif %}"
+              points="{{ curve.points }}"
+              data-curve-path="{{ curve.id }}"
+            ></polyline>
+          {% endfor %}
+        </svg>
+      </div>
+
+      <div class="chart-readout mt-3" aria-live="polite">
+        <strong class="chart-readout-label">{{ lesson.interactive_chart.curves[0].label }}</strong>
+        <span class="chart-readout-summary">{{ lesson.interactive_chart.curves[0].summary }}</span>
+      </div>
+    </section>
+  {% endif %}
+
   {% if lesson.bullet_sections %}
     {% for section in lesson.bullet_sections %}
       <div class="mb-3">
@@ -47,6 +119,17 @@
   {% if lesson.callout %}
     <div class="tip-box mb-4">
       <strong>Key Point:</strong> {{ lesson.callout }}
+    </div>
+  {% endif %}
+
+  {% if lesson.source_links %}
+    <div class="source-box mb-4">
+      <p class="fw-semibold mb-1">Sources</p>
+      <ul class="instruction-list mb-0">
+        {% for source in lesson.source_links %}
+          <li><a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
   {% endif %}
 

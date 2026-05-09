@@ -1,201 +1,494 @@
 {
-  "saved_at": "2026-04-28T02:40:40.322690+00:00",
-  "started_at": "2026-04-28T02:40:32.714491+00:00",
+  "saved_at": "2026-05-09T19:48:06.405723+00:00",
+  "started_at": "2026-05-09T19:42:49.664014+00:00",
   "page_entries": [
     {
-      "timestamp": "2026-04-28T02:40:32.719091+00:00",
+      "timestamp": "2026-05-09T19:42:49.671347+00:00",
       "page_type": "learn",
       "page_number": 1,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:33.909032+00:00",
+      "timestamp": "2026-05-09T19:42:51.294369+00:00",
       "page_type": "learn",
       "page_number": 2,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:35.653990+00:00",
+      "timestamp": "2026-05-09T19:42:53.553669+00:00",
       "page_type": "learn",
       "page_number": 3,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:36.571508+00:00",
+      "timestamp": "2026-05-09T19:42:54.956635+00:00",
       "page_type": "learn",
       "page_number": 4,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:37.610711+00:00",
+      "timestamp": "2026-05-09T19:42:56.889266+00:00",
       "page_type": "learn",
       "page_number": 5,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:38.325042+00:00",
+      "timestamp": "2026-05-09T19:42:58.508540+00:00",
       "page_type": "learn",
       "page_number": 6,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:39.094097+00:00",
+      "timestamp": "2026-05-09T19:43:02.091213+00:00",
       "page_type": "learn",
       "page_number": 7,
       "phase": null
     },
     {
-      "timestamp": "2026-04-28T02:40:40.322668+00:00",
+      "timestamp": "2026-05-09T19:43:03.084175+00:00",
       "page_type": "quiz",
       "page_number": 1,
       "phase": "question"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:14.219160+00:00",
+      "page_type": "quiz",
+      "page_number": 1,
+      "phase": "feedback"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:17.875057+00:00",
+      "page_type": "quiz",
+      "page_number": 1,
+      "phase": "question"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:21.579162+00:00",
+      "page_type": "quiz",
+      "page_number": 1,
+      "phase": "feedback"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:28.252678+00:00",
+      "page_type": "quiz",
+      "page_number": 2,
+      "phase": "question"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:38.650325+00:00",
+      "page_type": "quiz",
+      "page_number": 2,
+      "phase": "feedback"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:40.868112+00:00",
+      "page_type": "quiz",
+      "page_number": 2,
+      "phase": "question"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:48.717545+00:00",
+      "page_type": "quiz",
+      "page_number": 2,
+      "phase": "feedback"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:50.864257+00:00",
+      "page_type": "quiz",
+      "page_number": 3,
+      "phase": "question"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:53.852422+00:00",
+      "page_type": "quiz",
+      "page_number": 3,
+      "phase": "feedback"
+    },
+    {
+      "timestamp": "2026-05-09T19:43:54.764013+00:00",
+      "page_type": "quiz_results",
+      "page_number": null,
+      "phase": null
+    },
+    {
+      "timestamp": "2026-05-09T19:48:06.405446+00:00",
+      "page_type": "home",
+      "page_number": null,
+      "phase": null
     }
   ],
   "lesson_continues": {
-    "1": "2026-04-28T02:40:33.904417+00:00",
-    "2": "2026-04-28T02:40:35.649802+00:00",
-    "3": "2026-04-28T02:40:36.567571+00:00",
-    "4": "2026-04-28T02:40:37.606997+00:00",
-    "5": "2026-04-28T02:40:38.320407+00:00",
-    "6": "2026-04-28T02:40:39.090356+00:00",
-    "7": "2026-04-28T02:40:40.318272+00:00"
+    "1": "2026-05-09T19:42:51.288882+00:00",
+    "2": "2026-05-09T19:42:53.548897+00:00",
+    "3": "2026-05-09T19:42:54.952004+00:00",
+    "4": "2026-05-09T19:42:56.881842+00:00",
+    "5": "2026-05-09T19:42:58.504412+00:00",
+    "6": "2026-05-09T19:43:02.085929+00:00",
+    "7": "2026-05-09T19:43:03.079556+00:00"
   },
-  "quiz_answers": {},
+  "quiz_answers": {
+    "1": {
+      "answer_type": "order",
+      "question_id": "quiz-1",
+      "question": "Build the eating order for this meal.",
+      "order_ids": [
+        "rice",
+        "chicken",
+        "salad"
+      ],
+      "answer_label": "Rice -> Chicken -> Salad",
+      "submitted_at": "2026-05-09T19:43:21.575406+00:00"
+    },
+    "2": {
+      "answer_type": "choice",
+      "question_id": "quiz-2",
+      "question": "Which meal order is more likely to reduce the blood sugar spike?",
+      "choice_id": "q2-b",
+      "choice_label": "B: Bread first -> turkey -> side salad",
+      "answer_label": "B: Bread first -> turkey -> side salad",
+      "submitted_at": "2026-05-09T19:43:48.709414+00:00"
+    },
+    "3": {
+      "answer_type": "choice",
+      "question_id": "quiz-3",
+      "question": "Breakfast version: which order is more likely to reduce the spike?",
+      "choice_id": "q3-b",
+      "choice_label": "B: Berries first -> eggs -> toast last",
+      "answer_label": "B: Berries first -> eggs -> toast last",
+      "submitted_at": "2026-05-09T19:43:53.847000+00:00"
+    }
+  },
   "events": [
     {
-      "timestamp": "2026-04-28T02:40:32.714513+00:00",
+      "timestamp": "2026-05-09T19:42:49.664064+00:00",
       "event_type": "learning_started",
       "details": {
         "next_route": "/learn/1"
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:32.719108+00:00",
+      "timestamp": "2026-05-09T19:42:49.671445+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:32.719091+00:00",
+        "timestamp": "2026-05-09T19:42:49.671347+00:00",
         "page_type": "learn",
         "page_number": 1,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:33.904438+00:00",
+      "timestamp": "2026-05-09T19:42:51.288950+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 1
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:33.909045+00:00",
+      "timestamp": "2026-05-09T19:42:51.294395+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:33.909032+00:00",
+        "timestamp": "2026-05-09T19:42:51.294369+00:00",
         "page_type": "learn",
         "page_number": 2,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:35.649824+00:00",
+      "timestamp": "2026-05-09T19:42:53.548953+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 2
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:35.654001+00:00",
+      "timestamp": "2026-05-09T19:42:53.553686+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:35.653990+00:00",
+        "timestamp": "2026-05-09T19:42:53.553669+00:00",
         "page_type": "learn",
         "page_number": 3,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:36.567595+00:00",
+      "timestamp": "2026-05-09T19:42:54.952024+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 3
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:36.571520+00:00",
+      "timestamp": "2026-05-09T19:42:54.956648+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:36.571508+00:00",
+        "timestamp": "2026-05-09T19:42:54.956635+00:00",
         "page_type": "learn",
         "page_number": 4,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:37.607045+00:00",
+      "timestamp": "2026-05-09T19:42:56.881864+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 4
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:37.610741+00:00",
+      "timestamp": "2026-05-09T19:42:56.889281+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:37.610711+00:00",
+        "timestamp": "2026-05-09T19:42:56.889266+00:00",
         "page_type": "learn",
         "page_number": 5,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:38.320435+00:00",
+      "timestamp": "2026-05-09T19:42:58.504457+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 5
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:38.325055+00:00",
+      "timestamp": "2026-05-09T19:42:58.508572+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:38.325042+00:00",
+        "timestamp": "2026-05-09T19:42:58.508540+00:00",
         "page_type": "learn",
         "page_number": 6,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:39.090383+00:00",
+      "timestamp": "2026-05-09T19:43:02.085983+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 6
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:39.094115+00:00",
+      "timestamp": "2026-05-09T19:43:02.091237+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:39.094097+00:00",
+        "timestamp": "2026-05-09T19:43:02.091213+00:00",
         "page_type": "learn",
         "page_number": 7,
         "phase": null
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:40.318294+00:00",
+      "timestamp": "2026-05-09T19:43:03.079581+00:00",
       "event_type": "lesson_continue_clicked",
       "details": {
         "lesson_number": 7
       }
     },
     {
-      "timestamp": "2026-04-28T02:40:40.322685+00:00",
+      "timestamp": "2026-05-09T19:43:03.084194+00:00",
       "event_type": "page_entered",
       "details": {
-        "timestamp": "2026-04-28T02:40:40.322668+00:00",
+        "timestamp": "2026-05-09T19:43:03.084175+00:00",
         "page_type": "quiz",
         "page_number": 1,
         "phase": "question"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:08.653111+00:00",
+      "event_type": "meal_order_rearranged",
+      "details": {
+        "order_ids": [
+          "chicken",
+          "rice",
+          "salad"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:10.386772+00:00",
+      "event_type": "meal_order_rearranged",
+      "details": {
+        "order_ids": [
+          "salad",
+          "chicken",
+          "rice"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:13.467194+00:00",
+      "event_type": "meal_order_rearranged",
+      "details": {
+        "order_ids": [
+          "salad",
+          "rice",
+          "chicken"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:14.212844+00:00",
+      "event_type": "quiz_answer_saved",
+      "details": {
+        "question_number": 1,
+        "answer_type": "order",
+        "order_ids": [
+          "salad",
+          "rice",
+          "chicken"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:14.219209+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:14.219160+00:00",
+        "page_type": "quiz",
+        "page_number": 1,
+        "phase": "feedback"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:17.875076+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:17.875057+00:00",
+        "page_type": "quiz",
+        "page_number": 1,
+        "phase": "question"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:21.575456+00:00",
+      "event_type": "quiz_answer_saved",
+      "details": {
+        "question_number": 1,
+        "answer_type": "order",
+        "order_ids": [
+          "rice",
+          "chicken",
+          "salad"
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:21.579174+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:21.579162+00:00",
+        "page_type": "quiz",
+        "page_number": 1,
+        "phase": "feedback"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:28.252702+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:28.252678+00:00",
+        "page_type": "quiz",
+        "page_number": 2,
+        "phase": "question"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:38.646081+00:00",
+      "event_type": "quiz_answer_saved",
+      "details": {
+        "question_number": 2,
+        "answer_type": "choice",
+        "choice_id": "q2-a"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:38.650353+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:38.650325+00:00",
+        "page_type": "quiz",
+        "page_number": 2,
+        "phase": "feedback"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:40.868137+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:40.868112+00:00",
+        "page_type": "quiz",
+        "page_number": 2,
+        "phase": "question"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:48.709586+00:00",
+      "event_type": "quiz_answer_saved",
+      "details": {
+        "question_number": 2,
+        "answer_type": "choice",
+        "choice_id": "q2-b"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:48.717565+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:48.717545+00:00",
+        "page_type": "quiz",
+        "page_number": 2,
+        "phase": "feedback"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:50.864281+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:50.864257+00:00",
+        "page_type": "quiz",
+        "page_number": 3,
+        "phase": "question"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:53.847082+00:00",
+      "event_type": "quiz_answer_saved",
+      "details": {
+        "question_number": 3,
+        "answer_type": "choice",
+        "choice_id": "q3-b"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:53.852448+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:53.852422+00:00",
+        "page_type": "quiz",
+        "page_number": 3,
+        "phase": "feedback"
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:43:54.764025+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:43:54.764013+00:00",
+        "page_type": "quiz_results",
+        "page_number": null,
+        "phase": null
+      }
+    },
+    {
+      "timestamp": "2026-05-09T19:48:06.405496+00:00",
+      "event_type": "page_entered",
+      "details": {
+        "timestamp": "2026-05-09T19:48:06.405446+00:00",
+        "page_type": "home",
+        "page_number": null,
+        "phase": null
       }
     }
   ]

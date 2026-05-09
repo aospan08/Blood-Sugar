@@ -20,8 +20,8 @@
       <div class="alert alert-warning">Not quite.</div>
     {% endif %}
 
-    <p class="mb-1"><strong>Your answer:</strong> {{ saved_answer.choice_label }}</p>
-    <p class="mb-1"><strong>Correct answer:</strong> {{ correct_choice.label }}</p>
+    <p class="mb-1"><strong>Your answer:</strong> {{ saved_answer_label }}</p>
+    <p class="mb-1"><strong>Correct answer:</strong> {{ correct_answer_label }}</p>
     <p class="mb-4"><strong>Reason:</strong> {{ question.reason }}</p>
 
     {% if question.feedback_extra %}
@@ -48,7 +48,12 @@
     </div>
   {% else %}
     <h1 class="h4 mb-2">{{ question.question }}</h1>
-    <p class="hint-accent mb-3">{{ question.hint }}</p>
+    {% if question.hint %}
+      <details class="hint-panel mb-3">
+        <summary>Reveal hint</summary>
+        <p class="hint-accent mb-0">{{ question.hint }}</p>
+      </details>
+    {% endif %}
 
     {% if question.question_images %}
       <div class="slide-media-grid mb-3">
@@ -62,25 +67,51 @@
       </div>
     {% endif %}
 
-    <form class="quiz-option-form" method="post" action="{{ url_for('quiz', question_number=question_number) }}">
+    <form
+      class="quiz-option-form {% if question.answer_type == 'order' %}meal-order-form{% endif %}"
+      method="post"
+      action="{{ url_for('quiz', question_number=question_number) }}"
+    >
       {% if error %}
         <div class="alert alert-danger py-2" role="alert">{{ error }}</div>
       {% endif %}
 
-      <div class="vstack gap-2 mb-4">
-        {% for choice in question.choices %}
-          <label class="option-card" for="{{ choice.id }}">
-            <input
-              class="form-check-input me-2"
-              type="radio"
-              id="{{ choice.id }}"
-              name="choice_id"
-              value="{{ choice.id }}"
-            >
-            <span>{{ choice.label }}</span>
-          </label>
-        {% endfor %}
-      </div>
+      {% if question.answer_type == 'order' %}
+        <input type="hidden" name="order_ids" class="order-input" value="">
+        <div class="meal-order-board mb-4" aria-label="Arrange meal items in eating order">
+          {% for item in question.order_items %}
+            <article class="meal-order-card" draggable="true" data-order-id="{{ item.id }}">
+              {% if item.image %}
+                <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.label }}" class="meal-order-image">
+              {% endif %}
+              <div class="meal-order-content">
+                <p class="meal-order-position mb-1">Position {{ loop.index }}</p>
+                <h2 class="h6 mb-1">{{ item.label }}</h2>
+                <p class="small text-muted mb-2">{{ item.group }}</p>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-outline-secondary btn-sm move-up">Move up</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm move-down">Move down</button>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="vstack gap-2 mb-4">
+          {% for choice in question.choices %}
+            <label class="option-card" for="{{ choice.id }}">
+              <input
+                class="form-check-input me-2"
+                type="radio"
+                id="{{ choice.id }}"
+                name="choice_id"
+                value="{{ choice.id }}"
+              >
+              <span>{{ choice.label }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       <div class="d-flex flex-wrap gap-2">
         {% if question_number > 1 %}

@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   color: var(--color-dark-grey);
   font-family: "Nunito", sans-serif;
-  background: var(--color-light-grey);
+  background: var(--color-white);
 }
 
 h1,
@@ -51,18 +51,18 @@ h3,
 .hero-panel,
 .flow-card,
 .rubric-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-light-grey);
-  border-radius: 18px;
-  padding: 1.2rem;
-  box-shadow: 0 14px 28px rgba(var(--dark-grey-rgb), 0.12);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 @media (min-width: 768px) {
   .hero-panel,
   .flow-card,
   .rubric-card {
-    padding: 1.6rem;
+    padding: 0;
   }
 }
 
@@ -134,6 +134,112 @@ h3,
   color: var(--color-accent-ink);
 }
 
+.source-box,
+.interaction-panel,
+.interactive-chart-panel {
+  border: 1px solid var(--color-light-grey);
+  border-radius: 12px;
+  padding: 1rem;
+  background: transparent;
+}
+
+.source-box a {
+  color: var(--color-base);
+  font-weight: 700;
+}
+
+.hint-panel {
+  border: 1px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  background: rgba(var(--accent-rgb), 0.14);
+}
+
+.hint-panel summary {
+  color: var(--color-base);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.prediction-button.active,
+.chart-toggle.active {
+  background: var(--color-base);
+  color: var(--color-white);
+}
+
+.chart-frame {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--color-light-grey);
+  background: var(--color-white);
+}
+
+.glucose-chart {
+  display: block;
+  min-width: 560px;
+  width: 100%;
+  height: auto;
+}
+
+.target-range-band {
+  fill: rgba(93, 169, 116, 0.18);
+}
+
+.chart-axis {
+  stroke: var(--color-dark-grey);
+  stroke-width: 3;
+}
+
+.chart-grid {
+  stroke: rgba(var(--dark-grey-rgb), 0.18);
+  stroke-width: 1.5;
+}
+
+.chart-label,
+.chart-tick,
+.chart-band-label {
+  fill: var(--color-dark-grey);
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chart-y-label {
+  transform: rotate(-90deg);
+  transform-origin: 22px 170px;
+}
+
+.chart-band-label {
+  fill: #477a56;
+}
+
+.chart-curve {
+  fill: none;
+  opacity: 0.16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 8;
+  transition: opacity 0.18s ease, stroke-width 0.18s ease;
+}
+
+.chart-curve.active {
+  opacity: 1;
+  stroke-width: 10;
+}
+
+.chart-curve-carb-first {
+  stroke: #df5a40;
+}
+
+.chart-curve-fiber-first {
+  stroke: #5da974;
+}
+
+.chart-readout {
+  border-left: 4px solid var(--color-base);
+  padding-left: 0.85rem;
+}
+
 .option-card {
   border: 1px solid var(--color-light-grey);
   border-radius: 12px;
@@ -154,6 +260,54 @@ h3,
 .option-card.is-selected {
   border-color: var(--color-base);
   background: rgba(var(--base-rgb), 0.1);
+}
+
+.meal-order-board {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.meal-order-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 240px) minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  border: 1px solid var(--color-light-grey);
+  border-radius: 12px;
+  background: var(--color-white);
+  padding: 0.75rem;
+  cursor: grab;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.meal-order-card:hover,
+.meal-order-card.is-dragging {
+  border-color: var(--color-base);
+  box-shadow: 0 10px 20px rgba(var(--dark-grey-rgb), 0.12);
+}
+
+.meal-order-card.is-dragging {
+  cursor: grabbing;
+  opacity: 0.7;
+  transform: scale(0.99);
+}
+
+.meal-order-image {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.meal-order-position {
+  color: var(--color-base);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.meal-order-content {
+  min-width: 0;
 }
 
 .btn-primary {
@@ -201,8 +355,8 @@ h3,
 }
 
 .review-correct {
-  background: rgba(var(--accent-rgb), 0.22);
-  border-color: var(--color-accent);
+  background: rgba(93, 169, 116, 0.16);
+  border-color: #5da974;
 }
 
 .review-incorrect {
@@ -216,9 +370,9 @@ h3,
 }
 
 .alert-success {
-  color: var(--color-accent-ink);
-  background: rgba(var(--accent-rgb), 0.22);
-  border-color: var(--color-accent);
+  color: #2f6f42;
+  background: rgba(93, 169, 116, 0.16);
+  border-color: #5da974;
 }
 
 .alert-warning,
@@ -239,15 +393,15 @@ h3,
 
 .slide-media-grid {
   display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
 }
 
 .slide-media {
   display: block;
   width: 100%;
-  height: 240px;
+  height: 360px;
   border-radius: 12px;
   border: 1px solid var(--color-light-grey);
   background: var(--color-white);
@@ -257,7 +411,15 @@ h3,
 }
 
 @media (max-width: 576px) {
+  .slide-media-grid {
+    grid-template-columns: 1fr;
+  }
+
   .slide-media {
-    height: 200px;
+    height: 280px;
+  }
+
+  .meal-order-card {
+    grid-template-columns: 1fr;
   }
 }

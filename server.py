@@ -112,6 +112,37 @@ def find_choice(choices: list[dict], selected_id: str) -> dict | None:
     return None
 
 
+def format_order_answer(question: dict, selected_ids: list[str]) -> str:
+    labels_by_id = {item["id"]: item["label"] for item in question.get("order_items", [])}
+    return " -> ".join(labels_by_id.get(item_id, item_id) for item_id in selected_ids)
+
+
+def correct_answer_label(question: dict) -> str:
+    if question.get("answer_type") == "order":
+        return format_order_answer(question, question.get("correct_order", []))
+
+    correct_choice = find_choice(question.get("choices", []), question.get("correct_choice_id", ""))
+    if correct_choice:
+        return correct_choice["label"]
+    return ""
+
+
+def submitted_answer_label(submitted: dict | None) -> str:
+    if not submitted:
+        return "No answer submitted."
+    return submitted.get("answer_label") or submitted.get("choice_label", "")
+
+
+def is_submitted_answer_correct(question: dict, submitted: dict | None) -> bool:
+    if not submitted:
+        return False
+
+    if question.get("answer_type") == "order":
+        return submitted.get("order_ids") == question.get("correct_order", [])
+
+    return submitted.get("choice_id") == question.get("correct_choice_id")
+
+
 def common_template_context(active_section: str = "home") -> dict:
     return {
         "site_title": CONTENT.get("site_title", "Meal Order Glucose Coach"),
@@ -193,28 +224,61 @@ def quiz(question_number: int):
     error = ""
 
     if request.method == "POST":
-        selected_choice = request.form.get("choice_id", "").strip()
-        matched_choice = find_choice(question["choices"], selected_choice)
+        if question.get("answer_type") == "order":
+            selected_order = [
+                item_id.strip()
+                for item_id in request.form.get("order_ids", "").split(",")
+                if item_id.strip()
+            ]
+            expected_ids = {item["id"] for item in question.get("order_items", [])}
 
-        if not matched_choice:
-            error = "Select an answer before continuing."
-            phase = "question"
+            if set(selected_order) != expected_ids or len(selected_order) != len(expected_ids):
+                error = "Arrange every meal item before continuing."
+                phase = "question"
+            else:
+                state["quiz_answers"][str(question_number)] = {
+                    "answer_type": "order",
+                    "question_id": question["id"],
+                    "question": question["question"],
+                    "order_ids": selected_order,
+                    "answer_label": format_order_answer(question, selected_order),
+                    "submitted_at": now_iso(),
+                }
+                log_event(
+                    "quiz_answer_saved",
+                    {
+                        "question_number": question_number,
+                        "answer_type": "order",
+                        "order_ids": selected_order,
+                    },
+                )
+                return redirect(url_for("quiz", question_number=question_number, phase="feedback"))
         else:
-            state["quiz_answers"][str(question_number)] = {
-                "question_id": question["id"],
-                "question": question["question"],
-                "choice_id": matched_choice["id"],
-                "choice_label": matched_choice["label"],
-                "submitted_at": now_iso(),
-            }
-            log_event(
-                "quiz_answer_saved",
-                {
-                    "question_number": question_number,
+            selected_choice = request.form.get("choice_id", "").strip()
+            matched_choice = find_choice(question.get("choices", []), selected_choice)
+
+            if not matched_choice:
+                error = "Select an answer before continuing."
+                phase = "question"
+            else:
+                state["quiz_answers"][str(question_number)] = {
+                    "answer_type": "choice",
+                    "question_id": question["id"],
+                    "question": question["question"],
                     "choice_id": matched_choice["id"],
-                },
-            )
-            return redirect(url_for("quiz", question_number=question_number, phase="feedback"))
+                    "choice_label": matched_choice["label"],
+                    "answer_label": matched_choice["label"],
+                    "submitted_at": now_iso(),
+                }
+                log_event(
+                    "quiz_answer_saved",
+                    {
+                        "question_number": question_number,
+                        "answer_type": "choice",
+                        "choice_id": matched_choice["id"],
+                    },
+                )
+                return redirect(url_for("quiz", question_number=question_number, phase="feedback"))
 
     saved_answer = state["quiz_answers"].get(str(question_number))
 
@@ -227,8 +291,7 @@ def quiz(question_number: int):
     else:
         record_page_entry("quiz", question_number, phase="question")
 
-    correct_choice = find_choice(question["choices"], question["correct_choice_id"])
-    is_correct = bool(saved_answer) and saved_answer["choice_id"] == question["correct_choice_id"]
+    is_correct = is_submitted_answer_correct(question, saved_answer)
 
     if question_number < len(QUIZ_QUESTIONS):
         next_url = url_for("quiz", question_number=question_number + 1)
@@ -244,7 +307,8 @@ def quiz(question_number: int):
             "show_feedback": show_feedback,
             "error": error,
             "saved_answer": saved_answer,
-            "correct_choice": correct_choice,
+            "saved_answer_label": submitted_answer_label(saved_answer),
+            "correct_answer_label": correct_answer_label(question),
             "is_correct": is_correct,
             "next_url": next_url,
             "quiz_progress_percent": int((question_number / len(QUIZ_QUESTIONS)) * 100),
@@ -264,7 +328,7 @@ def quiz_results():
     reviewed_questions = []
     for question_number, question in enumerate(QUIZ_QUESTIONS, start=1):
         submitted = state["quiz_answers"].get(str(question_number))
-        is_correct = bool(submitted) and submitted["choice_id"] == question["correct_choice_id"]
+        is_correct = is_submitted_answer_correct(question, submitted)
         if is_correct:
             score += 1
 
@@ -273,8 +337,9 @@ def quiz_results():
                 "question_number": question_number,
                 "question": question,
                 "submitted": submitted,
+                "submitted_label": submitted_answer_label(submitted),
                 "is_correct": is_correct,
-                "correct_choice": find_choice(question["choices"], question["correct_choice_id"]),
+                "correct_answer_label": correct_answer_label(question),
             }
         )
 
@@ -305,6 +370,17 @@ def api_progress():
             "events": state["events"],
         }
     )
+
+
+@app.route("/api/event", methods=["POST"])
+def api_event():
+    payload = request.get_json(silent=True) or {}
+    event_type = str(payload.get("event_type", "interaction")).strip() or "interaction"
+    details = payload.get("details", {})
+    if not isinstance(details, dict):
+        details = {"value": details}
+    log_event(event_type, details)
+    return jsonify({"ok": True})
 
 
 if __name__ == "__main__":

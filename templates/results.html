@@ -33,14 +33,8 @@
     {% for item in reviewed_questions %}
       <article class="review-card {% if item.is_correct %}review-correct{% else %}review-incorrect{% endif %}">
         <p class="mb-1"><strong>Question {{ item.question_number }}:</strong> {{ item.question.question }}</p>
-        <p class="mb-1"><strong>Your answer:</strong>
-          {% if item.submitted %}
-            {{ item.submitted.choice_label }}
-          {% else %}
-            No answer submitted.
-          {% endif %}
-        </p>
-        <p class="mb-1"><strong>Correct answer:</strong> {{ item.correct_choice.label }}</p>
+        <p class="mb-1"><strong>Your answer:</strong> {{ item.submitted_label }}</p>
+        <p class="mb-1"><strong>Correct answer:</strong> {{ item.correct_answer_label }}</p>
         <p class="mb-0"><strong>Reason:</strong> {{ item.question.reason }}</p>
       </article>
     {% endfor %}

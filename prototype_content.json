@@ -113,7 +113,7 @@
       ]
     },
     {
-      "id": "lesson-6",
+      "id": "lesson-4",
       "step_number": 5,
       "title": "Why Meal Order Matters",
       "paragraphs": [
@@ -121,14 +121,58 @@
         "In one small study of people with type 2 diabetes, participants ate the same meal in different orders (carbs first vs carbs last).",
         "Eating protein and vegetables before carbohydrates led to lower post-meal glucose levels."
       ],
+      "prediction": {
+        "prompt": "Before seeing the chart, predict what happens when starchier carbohydrates come first.",
+        "default_response": "Choose a prediction, then compare the chart patterns below.",
+        "options": [
+          {
+            "id": "sharp",
+            "label": "Sharper spike"
+          },
+          {
+            "id": "gentle",
+            "label": "Gentler rise"
+          },
+          {
+            "id": "unsure",
+            "label": "Not sure"
+          }
+        ]
+      },
+      "interactive_chart": {
+        "title": "Compare the glucose pattern",
+        "subtitle": "Toggle the meal order to see how the same foods can create a sharper or gentler post-meal rise. CDC target reference: 80-130 mg/dL before meals and under 180 mg/dL about two hours after meals.",
+        "curves": [
+          {
+            "id": "carb-first",
+            "short_label": "Carbs first",
+            "label": "Rice first",
+            "peak": 205,
+            "points": "70,204 170,48 270,82 370,118 470,148 570,170",
+            "summary": "This pattern rises above the post-meal target reference, which is the kind of spike the habit is trying to reduce."
+          },
+          {
+            "id": "fiber-first",
+            "short_label": "Fiber first",
+            "label": "Salad and chicken first",
+            "peak": 148,
+            "points": "70,204 170,176 270,164 370,154 470,158 570,172",
+            "summary": "This pattern stays lower and flatter because fiber and protein come before the starchier carbohydrate."
+          }
+        ]
+      },
       "callout": "The food stayed the same. The order changed.",
       "next_label": "Next",
-      "images": [
-        "pptx_images/image7.png"
+      "images": [],
+      "source_links": [
+        {
+          "label": "CDC: Manage Blood Sugar",
+          "url": "https://www.cdc.gov/diabetes/treatment/index.html"
+        }
       ]
     },
     {
-      "id": "lesson-7",
+      "id": "lesson-5",
       "step_number": 6,
       "title": "Use the Diabetes Plate as the Meal Template",
       "paragraphs": [
@@ -147,7 +191,13 @@
       "callout": "Half veggies, quarter protein, quarter carbs.",
       "next_label": "Next",
       "images": [
-        "pptx_images/image9.png"
+        "pptx_images/plate.png"
+      ],
+      "source_links": [
+        {
+          "label": "Diabetes Food Hub: What is the Diabetes Plate?",
+          "url": "https://diabetesfoodhub.org/blog/what-diabetes-plate"
+        }
       ]
     },
     {
@@ -183,7 +233,7 @@
       ]
     },
     {
-      "id": "lesson-10",
+      "id": "lesson-7",
       "step_number": 8,
       "title": "Quiz Intro",
       "paragraphs": [
@@ -200,31 +250,38 @@
     {
       "id": "quiz-1",
       "step_number": 9,
-      "question": "Practice on one meal: which order should be eaten?",
-      "hint": "Meal items: salad, chicken, rice.",
-      "choices": [
+      "answer_type": "order",
+      "question": "Build the eating order for this meal.",
+      "hint": "Start with fiber-rich vegetables, then protein, then the starchier carbohydrate.",
+      "order_items": [
         {
-          "id": "q1-a",
-          "label": "Rice -> salad -> chicken"
+          "id": "rice",
+          "label": "Rice",
+          "group": "Starchier carbohydrate",
+          "image": "pptx_images/rice.png"
         },
         {
-          "id": "q1-b",
-          "label": "Salad -> chicken -> rice"
+          "id": "chicken",
+          "label": "Chicken",
+          "group": "Protein",
+          "image": "pptx_images/chicken2.png"
         },
         {
-          "id": "q1-c",
-          "label": "Chicken -> rice -> salad"
+          "id": "salad",
+          "label": "Salad",
+          "group": "Non-starchy vegetables",
+          "image": "pptx_images/salad.png"
         }
       ],
-      "correct_choice_id": "q1-b",
-      "feedback_title": "Practice Feedback",
-      "reason": "Best answer: salad -> chicken -> rice. This order is linked to the lower spike pattern in the prototype chart.",
-      "next_label": "Next",
-      "question_images": [
-        "pptx_images/image19.png",
-        "pptx_images/image16.png",
-        "pptx_images/image15.png"
+      "correct_order": [
+        "salad",
+        "chicken",
+        "rice"
       ],
+      "feedback_title": "Practice Feedback",
+      "reason": "Best order: salad -> chicken -> rice. A common mistake is starting with rice because it feels like the main part of the plate, but saving the starchier carbohydrate for last is linked to a gentler spike pattern.",
+      "next_label": "Next",
+      "question_images": [],
       "feedback_images": [
         "pptx_images/image5.png"
       ]
@@ -233,22 +290,26 @@
       "id": "quiz-2",
       "step_number": 10,
       "question": "Which meal order is more likely to reduce the blood sugar spike?",
-      "hint": "Option A: Bread first, turkey second, side salad last. Option B: Side salad first, turkey second, bread last.",
+      "hint": "Look for the option that delays the bread until after fiber-rich vegetables and protein.",
       "choices": [
         {
           "id": "q2-a",
-          "label": "A: Bread first -> turkey -> side salad"
+          "label": "A: Side salad first -> turkey -> bread last"
         },
         {
           "id": "q2-b",
-          "label": "B: Side salad first -> turkey -> bread last"
+          "label": "B: Bread first -> turkey -> side salad"
         }
       ],
-      "correct_choice_id": "q2-b",
+      "correct_choice_id": "q2-a",
       "feedback_title": "Quiz Feedback",
-      "reason": "Correct answer: B. Bread still belongs in the meal, but delaying it until after fiber and protein usually creates a gentler spike.",
+      "reason": "Correct answer: A. Bread still belongs in the meal, but delaying it until after fiber and protein usually creates a gentler spike. A common mix-up is thinking the carbohydrate has to be removed entirely; this lesson is about sequence.",
       "next_label": "Next",
-      "question_images": [],
+      "question_images": [
+        "pptx_images/bread.png",
+        "pptx_images/turkey.png",
+        "pptx_images/salad2.png"
+      ],
       "feedback_images": [],
       "feedback_extra": "Carbohydrates are still part of the meal. The lower-spike strategy is about sequence: fiber/vegetables first, protein next, and bread/starch later."
     },
@@ -256,7 +317,7 @@
       "id": "quiz-3",
       "step_number": 11,
       "question": "Breakfast version: which order is more likely to reduce the spike?",
-      "hint": "Option A: Toast first, eggs second, berries last. Option B: Berries first, eggs second, toast last.",
+      "hint": "Focus on delaying the toast. Pick the order that starts with a fiber-rich food, includes protein next, and saves the starchier carbohydrate for last.",
       "choices": [
         {
           "id": "q3-a",
@@ -271,7 +332,11 @@
       "feedback_title": "Quiz Feedback",
       "reason": "Correct answer: B. It follows the same logic: fiber/produce first, protein next, starch last.",
       "next_label": "See Wrap-up",
-      "question_images": [],
+      "question_images": [
+        "pptx_images/berries.png",
+        "pptx_images/eggs.png",
+        "pptx_images/toast.png"
+      ],
       "feedback_images": [],
       "feedback_extra": "This does not make a sweet breakfast \"free.\" It points to a gentler order for the same foods."
     }
