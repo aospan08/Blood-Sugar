@@ -3,7 +3,7 @@
 {% block content %}
 <section class="hero-panel mb-4">
   <div class="row g-4 align-items-center">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
       <p class="eyebrow mb-2">Step {{ home.step_number }} of {{ total_steps }}</p>
       <h1 class="display-6 mb-2">{{ home.headline }}</h1>
       <p class="lead mb-3">{{ home.subtitle }}</p>
@@ -11,9 +11,14 @@
       {% for paragraph in home.paragraphs %}
         <p class="mb-2">{{ paragraph }}</p>
       {% endfor %}
+      <form id="start-form" action="{{ url_for('start') }}" method="post" class="mt-3">
+        <button id="start-button" type="submit" class="btn btn-primary btn-lg">{{ home.start_button_label }}</button>
+      </form>
+    </div>
 
-      {% if home.images %}
-        <div class="slide-media-grid{% if home.images|length == 1 %} single-media{% endif %} mt-3 mb-3">
+    {% if home.images %}
+      <div class="col-lg-6">
+        <div class="slide-media-grid single-media mb-3 mb-lg-0">
           {% for image in home.images %}
             <img
               class="slide-media"
@@ -22,14 +27,10 @@
             >
           {% endfor %}
         </div>
-      {% endif %}
+      </div>
+    {% endif %}
 
-      <form id="start-form" action="{{ url_for('start') }}" method="post" class="mt-3">
-        <button id="start-button" type="submit" class="btn btn-primary btn-lg">{{ home.start_button_label }}</button>
-      </form>
-    </div>
-
-    <div class="col-lg-4">
+    <div class="col-lg-6">
       <div class="summary-card">
         <h2 class="h5">Session Snapshot</h2>
         {% if has_started %}

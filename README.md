@@ -1,6 +1,7 @@
 # Final Project: Meal Order Glucose Coach
 
-This project teachers usrs how to use meal order to reduce blood sugar spikes.
+This project teaches users how meal order can help reduce post-meal blood sugar spikes.
+Owner: Amina Ospan
 
 ## Run
 
@@ -23,9 +24,4 @@ This project teachers usrs how to use meal order to reduce blood sugar spikes.
 - Learning pages: `/learn/<n>`
 - Quiz pages: `/quiz/<n>`
 - Quiz results: `/quiz/results`
-
-## Backend Data Tracking
-
-- Page entries, learning selections, and quiz answers are persisted to:
-  - `activity_log.json`
 

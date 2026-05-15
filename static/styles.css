@@ -247,6 +247,26 @@ h3,
   padding-left: 0.85rem;
 }
 
+.lesson-single-layout {
+  align-items: stretch;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+}
+
+.lesson-copy > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.lesson-media {
+  display: flex;
+}
+
+.lesson-media .slide-media {
+  height: 100%;
+  min-height: 320px;
+}
+
 .option-card {
   border: 1px solid var(--color-light-grey);
   border-radius: 12px;
@@ -426,6 +446,12 @@ h3,
   padding: 0.45rem;
   object-fit: contain;
   object-position: center;
+}
+
+@media (max-width: 768px) {
+  .lesson-single-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 576px) {

@@ -13,20 +13,70 @@
 
   <h1 class="h3 mb-3">{{ lesson.title }}</h1>
 
-  {% for paragraph in lesson.paragraphs %}
-    <p>{{ paragraph }}</p>
-  {% endfor %}
+  {% if lesson.images and lesson.images|length == 1 %}
+    <div class="lesson-single-layout mb-4">
+      <div class="lesson-copy">
+        {% for paragraph in lesson.paragraphs %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
 
-  {% if lesson.images %}
-    <div class="slide-media-grid{% if lesson.images|length == 1 %} single-media{% endif %} mb-3">
-      {% for image in lesson.images %}
+        {% if lesson.bullet_sections %}
+          {% for section in lesson.bullet_sections %}
+            <div class="mb-3">
+              {% if section.heading %}
+                <p class="fw-semibold mb-1">{{ section.heading }}</p>
+              {% endif %}
+              <ul class="instruction-list mb-0">
+                {% for bullet in section.bullets %}
+                  <li>{{ bullet }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        {% if lesson.callout %}
+          <div class="tip-box mb-4">
+            <strong>Key Point:</strong> {{ lesson.callout }}
+          </div>
+        {% endif %}
+
+        {% if lesson.source_links %}
+          <div class="source-box mb-4">
+            <p class="fw-semibold mb-1">Sources</p>
+            <ul class="instruction-list mb-0">
+              {% for source in lesson.source_links %}
+                <li><a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+
+      <aside class="lesson-media">
         <img
           class="slide-media"
-          src="{{ url_for('static', filename=image) }}"
-          alt="Prototype reference image {{ loop.index }} for {{ lesson.title }}"
+          src="{{ url_for('static', filename=lesson.images[0]) }}"
+          alt="Prototype reference image for {{ lesson.title }}"
         >
-      {% endfor %}
+      </aside>
     </div>
+  {% else %}
+    {% for paragraph in lesson.paragraphs %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
+
+    {% if lesson.images %}
+      <div class="slide-media-grid mb-3">
+        {% for image in lesson.images %}
+          <img
+            class="slide-media"
+            src="{{ url_for('static', filename=image) }}"
+            alt="Prototype reference image {{ loop.index }} for {{ lesson.title }}"
+          >
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
 
   {% if lesson.prediction %}
@@ -101,7 +151,7 @@
     </section>
   {% endif %}
 
-  {% if lesson.bullet_sections %}
+  {% if (not lesson.images or lesson.images|length != 1) and lesson.bullet_sections %}
     {% for section in lesson.bullet_sections %}
       <div class="mb-3">
         {% if section.heading %}
@@ -116,13 +166,13 @@
     {% endfor %}
   {% endif %}
 
-  {% if lesson.callout %}
+  {% if (not lesson.images or lesson.images|length != 1) and lesson.callout %}
     <div class="tip-box mb-4">
       <strong>Key Point:</strong> {{ lesson.callout }}
     </div>
   {% endif %}
 
-  {% if lesson.source_links %}
+  {% if (not lesson.images or lesson.images|length != 1) and lesson.source_links %}
     <div class="source-box mb-4">
       <p class="fw-semibold mb-1">Sources</p>
       <ul class="instruction-list mb-0">
