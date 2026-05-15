@@ -18,7 +18,7 @@
   {% endfor %}
 
   {% if lesson.images %}
-    <div class="slide-media-grid mb-3">
+    <div class="slide-media-grid{% if lesson.images|length == 1 %} single-media{% endif %} mb-3">
       {% for image in lesson.images %}
         <img
           class="slide-media"
@@ -66,10 +66,10 @@
         </div>
       </div>
 
-      <div class="chart-frame" role="img" aria-label="Interactive glucose response chart with reference range from 70 to 180 milligrams per deciliter">
+      <div class="chart-frame" role="img" aria-label="Interactive glucose response chart with a typical post-meal target under 180 milligrams per deciliter">
         <svg viewBox="0 0 640 330" class="glucose-chart" focusable="false" aria-hidden="true">
           <rect x="70" y="126" width="500" height="106" class="target-range-band"></rect>
-          <text x="78" y="146" class="chart-band-label">Reference zone: 70-180 mg/dL</text>
+          <text x="78" y="146" class="chart-band-label">CDC typical target: less than 180 mg/dL two hours after meal start</text>
 
           <line x1="70" y1="292" x2="570" y2="292" class="chart-axis"></line>
           <line x1="70" y1="24" x2="70" y2="292" class="chart-axis"></line>

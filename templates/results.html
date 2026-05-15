@@ -15,7 +15,7 @@
   {% endif %}
 
   {% if wrap_up.images %}
-    <div class="slide-media-grid mt-3">
+    <div class="slide-media-grid{% if wrap_up.images|length == 1 %} single-media{% endif %} mt-3">
       {% for image in wrap_up.images %}
         <img
           class="slide-media"

@@ -13,7 +13,7 @@
       {% endfor %}
 
       {% if home.images %}
-        <div class="slide-media-grid mt-3 mb-3">
+        <div class="slide-media-grid{% if home.images|length == 1 %} single-media{% endif %} mt-3 mb-3">
           {% for image in home.images %}
             <img
               class="slide-media"
